@@ -1,5 +1,6 @@
 package com.curriculo.curriculo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Language {
     private String abilityLevel;
 
     @ManyToOne()
+    @JsonBackReference
     @JoinColumn(name = "resume_id")
     private Resume resume;
 

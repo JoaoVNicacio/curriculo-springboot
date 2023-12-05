@@ -1,4 +1,5 @@
 package com.curriculo.curriculo.entities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -32,8 +33,10 @@ public class Resume {
     private List<String> skills;
 
     @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Experience> experiences;
 
     @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Language> languages;
 }
